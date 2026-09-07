@@ -1,0 +1,20 @@
+# Python bytecode & cache
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# Test execution reports & artifacts
+report.html
+assets/
+*.log
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# OS / Editor specific
+.DS_Store
+Thumbs.db
+.vscode/
