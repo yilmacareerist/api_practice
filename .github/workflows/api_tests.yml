@@ -27,3 +27,11 @@ jobs:
       - name: Execute API test suite
         run: |
           pytest -v -s --html=report.html --self-contained-html
+
+      - name: Upload HTML Test Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pytest-html-report
+          path: report.html
+          retention-days: 14
