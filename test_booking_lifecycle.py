@@ -1,3 +1,4 @@
+from jsonschema import validate
 import pytest
 import requests
 
@@ -101,3 +102,38 @@ def test_delete_non_existent_booking(auth_token):
     }
     response = requests.delete(url, headers=headers)
     assert response.status_code == 405
+
+    from jsonschema import validate
+
+# Schema definition for RESTful-Booker booking object
+BOOKING_SCHEMA = {
+    "type": "object",
+    "properties": {
+        "firstname": {"type": "string"},
+        "lastname": {"type": "string"},
+        "totalprice": {"type": "integer"},
+        "depositpaid": {"type": "boolean"},
+        "bookingdates": {
+            "type": "object",
+            "properties": {
+                "checkin": {"type": "string"},
+                "checkout": {"type": "string"}
+            },
+            "required": ["checkin", "checkout"]
+        },
+        "additionalneeds": {"type": "string"}
+    },
+    "required": ["firstname", "lastname", "totalprice", "depositpaid", "bookingdates"]
+}
+
+def test_get_booking_schema_validation(booking_id):
+    """Fetch booking and validate complete JSON schema structure and types."""
+    url = f"{BASE_URL}/booking/{booking_id}"
+    headers = {"Accept": "application/json"}
+    
+    response = requests.get(url, headers=headers)
+    assert response.status_code == 200
+    
+    data = response.json()
+    # validate() raises ValidationError if response breaks the contract
+    validate(instance=data, schema=BOOKING_SCHEMA)
