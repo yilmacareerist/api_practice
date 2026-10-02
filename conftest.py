@@ -53,8 +53,11 @@ def booking_id(dynamic_booking_payload):
 def created_booking_id(booking_id):
     return booking_id
     @pytest.fixture(scope="session")
+@pytest.fixture(scope="session")
+@pytest.fixture(scope="session")
 def base_url():
     return "https://restful-booker.herokuapp.com"
+
 
 @pytest.fixture
 def auth_headers(auth_token):
