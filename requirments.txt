@@ -1,5 +1,0 @@
-pytest
-requests
-jsonschema
-python-dotenv
-pytest-html
