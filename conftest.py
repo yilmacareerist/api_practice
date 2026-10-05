@@ -1,4 +1,3 @@
-@'
 import pytest
 import requests
 from faker import Faker
@@ -58,4 +57,3 @@ def auth_headers(auth_token):
         "Accept": "application/json",
         "Cookie": f"token={auth_token}"
     }
-'@ | Set-Content -Path conftest.py -Encoding utf8
