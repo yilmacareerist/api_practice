@@ -27,3 +27,8 @@ assets/
 # Python Cache
 __pycache__/
 *.py[cod]
+
+# Coverage reports
+htmlcov/
+.coverage
+.coverage.*
