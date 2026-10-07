@@ -50,6 +50,21 @@ def created_booking_id(booking_id):
 def base_url():
     return "https://restful-booker.herokuapp.com"
 
+
+
+@pytest.fixture(scope="session")
+def auth_token(base_url):
+    url = f"{base_url}/auth"
+    payload = {
+        "username": "admin",
+        "password": "password123"
+    }
+    headers = {"Content-Type": "application/json"}
+    response = requests.post(url, json=payload, headers=headers)
+    assert response.status_code == 200
+    return response.json()["token"]
+
+
 @pytest.fixture
 def auth_headers(auth_token):
     return {
