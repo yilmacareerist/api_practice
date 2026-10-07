@@ -4,3 +4,4 @@ jsonschema
 python-dotenv
 pytest-html
 Faker
+pytest-cov
