@@ -1,6 +1,6 @@
 import pytest
 import requests
-![API Automation CI](https://github.com/yilmacareerist/api_practice/actions/workflows/api_tests.yml/badge.svg)
+![API Automation CI](https://github.com/yilmacareerist/api_practice/actions/workflows/api_tests.yml/badge.svg)[![API Tests](https://github.com/yilmacareerist/api_practice/actions/workflows/api_tests.yml/badge.svg)](https://github.com/yilmacareerist/api_practice/actions/workflows/api_tests.yml)
 BASE_URL = "https://restful-booker.herokuapp.com"
 
 def test_update_booking_put(auth_token, booking_id):
